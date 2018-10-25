@@ -1,0 +1,55 @@
+module UI(  iClk,iRst_n,iKey,iSW,
+				 oAngle			
+			  );
+
+input 		 	  iClk;
+input 		 	  iRst_n;
+input      [1:0] iKey;		// input key for rith or left
+input      [1:0] iSW;		// speed control
+output reg [7:0] oAngle;	// Orientation angle
+
+`define AdjAngle 5			// base movement step
+`define MAX_Angle 180		
+`define MIN_Angle 0
+reg [21:0] count;				// ???
+
+
+
+always@(posedge iClk or negedge iRst_n)
+begin
+  if(!iRst_n)
+  begin
+    oAngle <= 8'd60; 
+    count <= 0;
+  end
+  else
+  begin
+    case(iKey)   
+    2'b10:begin
+			     //if(count[21] & (oAngle != `MAX_Angle))
+				  //begin
+				    //count <= 0;
+					 oAngle <= 45; //oAngle + `AdjAngle;
+				  //end
+				  //else
+				    //count <= count + iSW + 1;
+	  	  	   end
+    2'b01:begin
+			     //if(count[21] & (oAngle != `MIN_Angle))
+				  //begin
+				   // count <= 0;
+					 oAngle <= 180;//oAngle - `AdjAngle;
+				 // end
+				  //else
+				  //  count <= count + iSW + 1;
+			   end
+	 2'b00:begin
+					oAngle <= 8'd90; 
+			end
+	 
+    default: count <= 0;  
+    endcase
+  end
+end
+
+endmodule 

@@ -1,0 +1,11 @@
+I/O Assignment Analysis Status : Successful - Thu Oct 25 23:37:17 2018
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+Revision Name : MAINFILE
+Top-level Entity Name : MAINFILE
+Family : Cyclone V
+Device : 5CSEBA6U23I7
+Timing Models : Final
+Total pins : 26 / 314 ( 8 % )
+Total virtual pins : 0
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )
